@@ -114,7 +114,8 @@ action:
 
     # Command Mode: all off
     - conditions:
-        - "{{ command == 'double_press' }}"
+        - "{{ command == 'off' }}"
+        - "{{ cluster_id == 6 }}"
         - "{{ endpoint_id == 1 }}"
       sequence: !input all_off
 
