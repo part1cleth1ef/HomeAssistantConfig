@@ -218,7 +218,10 @@ action:
 
     # Event mode: Short Press
     - conditions:
-        - "{{ command == 'remote_button_short_press' }}"
+        - "{{ command == 'press_type' }}"
+        - "{{ cluster_id == 6 }}"
+        - "{{ endpoint_id == 1 }}"
+
       sequence: !input press_short
 
     # Event mode: Double Press
