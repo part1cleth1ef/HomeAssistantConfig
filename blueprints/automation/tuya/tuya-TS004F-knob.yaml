@@ -51,6 +51,11 @@ blueprint:
       selector:
         action:
       default: []
+    all_off:
+      name: Switch all targets off (Command/Dimmer mode)
+      selector:
+        action:
+      default: []
     press_short:
       name: Short Press (Event/Scene mode)
       selector:
@@ -106,6 +111,12 @@ action:
         - "{{ cluster_id == 6 }}"
         - "{{ endpoint_id == 1 }}"
       sequence: !input toggle
+
+    # Command Mode: all off
+    - conditions:
+        - "{{ command == 'double_press' }}"
+        - "{{ endpoint_id == 1 }}"
+      sequence: !input all_off
 
     # Command Mode: Dimming
     - conditions:
